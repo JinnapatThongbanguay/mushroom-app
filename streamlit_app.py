@@ -4,7 +4,7 @@ from PIL import Image
 
 # ตั้งค่า API
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
-model = genai.GenerativeModel("gemini-1.5-flash")
+model = genai.GenerativeModel("gemini-2.5-flash")
 
 # หัวเรื่อง
 st.title("🍄 Mushroom Classification using Gemini API")
