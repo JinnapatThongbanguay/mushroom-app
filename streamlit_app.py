@@ -205,7 +205,7 @@ st.title("Mushroom Safety Finder (RAG + Gemini)")
 st.write("ระบบประเมินความเสี่ยงเห็ดจากภาพ (CLIP + FAISS + Knowledge Base) — Safe Mode ON")
 st.info("เพื่อการศึกษาเท่านั้น ห้ามใช้ตัดสินใจกินจริง")
 
-uploaded = st.file_uploader("อัปโหลดภาพเห็ด (jpg, png)", type=["jpg","jpeg","png"])
+uploaded = st.file_uploader("อัปโหลดภาพเห็ด (jpg, png, heic)", type=["jpg","jpeg","png", "heic"])
 # expert_mode ถูกตั้งค่าตายตัวเป็น False หรือย้ายไป sidebar แทน
 expert_mode = False # ใช้ User Mode เสมอ
 
