@@ -1,2 +1,10 @@
-streamlit
+streamlit==1.26.0
+torch>=2.0.0
+transformers>=4.30.0
+pillow
+numpy
+pandas
+scikit-learn
+faiss-cpu
 google-generativeai
+tqdm
