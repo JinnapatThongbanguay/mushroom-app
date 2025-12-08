@@ -211,9 +211,17 @@ expert_mode = False # ใช้ User Mode เสมอ
 
 if uploaded:
     try:
-        image = Image.open(uploaded).convert("RGB")
+        # เปิดไฟล์ที่อัปโหลด
+        image = Image.open(uploaded)
+        
+        # ตรวจสอบและแปลงเป็น RGB เสมอ
+        if image.mode != 'RGB':
+            image = image.convert('RGB')
+            
         st.image(image, use_container_width=True)
-    except Exception:
+    except Exception as e:
+        # แสดง error ที่เกิดขึ้นจริงใน log เพื่อช่วย debug
+        print(f"PIL/Image Processing Error: {e}") 
         st.error("ไม่สามารถเปิดไฟล์รูปภาพได้ กรุณาอัปโหลดไฟล์รูปที่ถูกต้อง")
         st.stop()
 
