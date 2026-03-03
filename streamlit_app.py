@@ -116,6 +116,14 @@ def extract_image_features(image: Image.Image) -> np.ndarray:
     
     with torch.no_grad():
         features = clip_model.get_image_features(**inputs)
+        
+        # แก้ตรงนี้: บาง version return BaseModelOutputWithPooling
+        if hasattr(features, 'pooler_output'):
+            features = features.pooler_output
+        elif hasattr(features, 'last_hidden_state'):
+            features = features.last_hidden_state[:, 0, :]
+        # else: features เป็น tensor ปกติอยู่แล้ว
+        
         features = features / features.norm(dim=-1, keepdim=True)
     
     return features.cpu().numpy()[0]
